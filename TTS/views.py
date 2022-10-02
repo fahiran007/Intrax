@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
-import pyttsx3
+from gtts import gTTS
+import os
 # Create your views here.
 def Home(request):
     try:
@@ -11,10 +12,10 @@ def Home(request):
     return render(request, 'TTS/index.html',{"spell":spell})
 def speech(request):
     spelling = request.GET.get('spelling')
-    engine = pyttsx3.init()
-    engine.setProperty('rate', 100)
-    engine.say(spelling)
-    engine.runAndWait()
+    language = 'en'
+    myobj = gTTS(text=spelling, lang=language, slow=False)
+    myobj.save("welcome.mp3")
+    os.system("start welcome.mp3")
     return redirect(f'/TTS/Home?spelling={spelling}')
 def speechs(request):
     spelling = request.GET.get('spelling')
