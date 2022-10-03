@@ -9,7 +9,7 @@ def home(request):
     if Creates.objects.filter(ListingDate=today).first():
         pass
     else:
-        return redirect('/Create')
+        return redirect('/Routine/Create')
     dates = Creates.objects.get(ListingDate=today)
    
     data = timestamps.objects.filter(collage=dates.collage,writting=dates.writting)

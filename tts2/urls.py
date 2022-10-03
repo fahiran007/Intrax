@@ -17,13 +17,9 @@ from django.contrib import admin
 from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
+from tts2 import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('IntraX/',include('Intrax.urls')),
-    path('Routine/',include('TimeRules.urls')),
-    path('TTS/',include('TTS.urls')),
-    path('TTS2/',include('tts2.urls')),
-    path('InterStoreX/',include('interstorex.urls')),
-    path('MultiSell/',include('multisell.urls'))
-]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('Home',views.Home)    
+]
