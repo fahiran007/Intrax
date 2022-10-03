@@ -55,5 +55,5 @@ def Create(request):
         today = datetime.date.today()
         l = Creates(ListingDate=today,writting=writting,collage=collage)
         l.save()
-        return redirect('/Home')
+        return redirect('/Routine/Home')
     return render(request, 'Timerules/index.html')
