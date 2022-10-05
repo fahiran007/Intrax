@@ -4,7 +4,7 @@ from TimeRules.timerules import Dictionary,times
 from django.http import HttpResponse
 from datetime import date as dat
 from datetime import date as dat2
-from TimeRules.timerules import timex
+from TimeRules.timerule2 import serialNum
 # Create your views here
 def home(request):
     today = dat.today()
@@ -14,7 +14,7 @@ def home(request):
         return redirect('/Routine/Create')
     dates = Creates.objects.get(ListingDate=today)
     data = timestamps.objects.filter(collage=dates.collage,writting=dates.writting)
-    time = timex.serialNum(dates.collage, dates.writting)
+    time = serialNum(dates.collage, dates.writting)
     return render(request, 'Timerules/index.html',{"data":data,"time":time})
 def Create(request):
     if request.method == 'POST':
