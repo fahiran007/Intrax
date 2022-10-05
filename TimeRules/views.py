@@ -1,19 +1,21 @@
 from django.shortcuts import render,redirect
 from TimeRules.models import Creates,timestamps
-from TimeRules.timerules import Dictionary
-import datetime
-# Create your views here
+from TimeRules.timerules import Dictionary,times
 from django.http import HttpResponse
+from datetime import date as dat
+from datetime import date as dat2
+from TimeRules.timerule2 import serialNum
+# Create your views here
 def home(request):
-    today = datetime.date.today()
+    today = dat.today()
     if Creates.objects.filter(ListingDate=today).first():
         pass
     else:
         return redirect('/Routine/Create')
     dates = Creates.objects.get(ListingDate=today)
-   
     data = timestamps.objects.filter(collage=dates.collage,writting=dates.writting)
-    return render(request, 'Timerules/index.html',{"data":data})
+    time = serialNum(dates.collage, dates.writting)
+    return render(request, 'Timerules/index.html',{"data":data,"time":time})
 def Create(request):
     if request.method == 'POST':
         timestamps.objects.all().delete()
@@ -52,7 +54,7 @@ def Create(request):
         wakeup = request.POST.get('wakeup')
         collage = request.POST.get('collage')
         writting = request.POST.get('writting')
-        today = datetime.date.today()
+        today = dat2.today()
         l = Creates(ListingDate=today,writting=writting,collage=collage)
         l.save()
         return redirect('/Routine/Home')

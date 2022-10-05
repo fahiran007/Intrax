@@ -15,8 +15,9 @@ def TimeConverter(startTime,minutes):
     stminutes = minutes
     hours += hour2
     sthours = sthours+hours
-    if sthours > 12:
-        sthours = sthours-12
+    if startTime == timeMaker(22,00):
+        if sthours > 12:
+            sthours = sthours-12
     Time = timeMaker(sthours,stminutes)
     Hour = int(m/60)
     mint = m%60
@@ -270,3 +271,15 @@ def times():
     minute = int(current_time[3:5])
     time = timeMaker(hour,minute)
     return time
+def serialNum(collage,writting): 
+    timedict = Dictionary(collage,writting)
+    serial = 0
+    for i in range(len(timedict)):
+        strtime = timedict[f'd{i}']['from'] 
+        strhour = int(strtime[0:2])
+        strmin = int(strtime[3:5])
+        strtime = timeMaker(strhour,strmin)
+        time = times()
+        if strtime <= time:
+            serial = serial+1
+    return serial

@@ -6,7 +6,7 @@ class Creates(models.Model):
     writting = models.CharField(max_length=50)
     collage = models.CharField(max_length=50)
 class timestamps(models.Model):
-    serialNumber = models.CharField(max_length=50)
+    serialNumber = models.IntegerField()
     title = models.CharField(max_length=50)
     fromTime = models.CharField(max_length=50)
     toTime = models.CharField(max_length=50)
