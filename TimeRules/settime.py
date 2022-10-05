@@ -33,6 +33,7 @@ def serialFinal(l):
     time = times()
     serial = 0
     for i in range(len(l)):
+        print(time)
         if l[i] <= time:
             serial = serial + 1
             print(serial)
