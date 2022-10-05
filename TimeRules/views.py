@@ -14,7 +14,7 @@ def home(request):
         return redirect('/Routine/Create')
     dates = Creates.objects.get(ListingDate=today)
     data = timestamps.objects.filter(collage=dates.collage,writting=dates.writting)
-    time = serialNum(dates.collage, dates.writting)
+    time = serialNum(dates.collage, dates.writting,0)
     return render(request, 'Timerules/index.html',{"data":data,"time":time})
 def Create(request):
     if request.method == 'POST':
