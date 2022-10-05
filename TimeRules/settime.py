@@ -5,7 +5,10 @@ import time
 def times():
     t = time.localtime()
     current_time = time.strftime("%H:%M:%S", t)
-    return current_time
+    hour = int(current_time[0:2])
+    minute = int(current_time[3:5])
+    times = timeMake(hour,minute)
+    return times
 def serialNum(collage,writting):
     # collage no, writting yes
     if collage == "no" and writting == "yes":
@@ -37,3 +40,4 @@ def serialFinal(l):
             print(serial)
             print(l[i])
     return serial
+print(serialNum('no', 'yes'))
