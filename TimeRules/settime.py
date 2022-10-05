@@ -1,13 +1,11 @@
 from datetime import datetime as datetimes
 from datetime import time as timeMake
 import datetime
+import time
 def times():
-    now = datetimes.now()
-    current_time = now.strftime("%H:%M")
-    hour = int(current_time[0:2])
-    minute = int(current_time[3:5])
-    time = timeMake(hour,minute)
-    return time
+    t = time.localtime()
+    current_time = time.strftime("%H:%M:%S", t)
+    return current_time
 def serialNum(collage,writting):
     # collage no, writting yes
     if collage == "no" and writting == "yes":
