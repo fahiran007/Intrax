@@ -1,4 +1,5 @@
 from  datetime import time as timeMaker
+serial = 0
 Minutes = []
 Timelist2 = []
 def TimeConverter(startTime,minutes):
@@ -271,9 +272,9 @@ def times():
     minute = int(current_time[3:5])
     time = timeMaker(hour,minute)
     return time
-def serialNum(collage,writting): 
+def serialNum(collage,writting):
+    global serial
     timedict = Dictionary(collage,writting)
-    serial = 0
     for i in range(len(timedict)):
         strtime = timedict[f'd{i}']['from'] 
         strhour = int(strtime[0:2])
