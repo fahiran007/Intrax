@@ -6,136 +6,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Document</title>
+  <link rel="stylesheet" href="/static/Intrax/css/login.css">
   <style>
-    .input {
-      padding-left: 0.5rem;
-      height: 50px;
-      width: 100%;
-      color: black;
-      outline: none;
-      background-color: rgb(226, 231, 240);
-      margin: 0.4rem 0 0.4rem 0;
-      border-radius: 00.4rem;
-    }
-
-    .inputs {
-      width: 97vw;
-      padding: 0.4rem;
-      margin: auto;
-      border-radius: 0.4rem;
-    }
-
-    * {
-      box-sizing: border-box;
-      padding: 0;
-      margin: 0;
-    }
-
-    header {
-      padding-left: 0.4rem;
-      width: 100vw;
-      height: 5.8vh;
-      display: flex;
-      align-items: center;
-      color: white;
-    }
-
-    body {
-      background-color: rgb(5, 5, 38);
-    }
-
-    .btns {
-      margin-top: 1rem;
-      width: 100%;
-      height: 50px;
-    }
-
-    .btn {
-      width: 48%;
-      height: 100%;
-      color: white;
-      float: left;
-      border: none;
-      border-radius: 0.4rem;
-      font-size: 1.2rem;
-    }
-
-    .loginbtn {
-      margin-right: 2%;
-      border: 2.5px solid white;
-      color: white;
-      background: none;
-    }
-
-    .signupbtn {
-      background-color: rgb(254, 98, 8);
-      margin-left: 2%;
-    }
-
-    .dis-none {
-      display: none;
-    }
-
-    .welcome {
-      width: 94%;
-      margin: 5% auto 0 auto;
-      display: block;
-      color: white;
-    }
-
-    .verify {
-      text-align: center;
-      font-size: 1.8rem;
-      font-weight: bold;
-    }
-
-    .otp-sent {
-      background-color: green;
-      width: 60%;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      border-bottom-left-radius: 0.4rem;
-      border-top-left-radius: 0.4rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .otp-sent label {
-      margin-left: 0.5rem;
-      color: white;
-    }
-
-    .main-box {
-      width: 100vw;
-      display: flex;
-      justify-content: right;
-    }
-
-    .error-box {
-      font-weight: bold;
-      background-color: rgb(187, 8, 8);
-      color: whitesmoke;
-      margin: 0.4rem auto auto auto;
-      width: 94%;
-      padding: 0.3rem 0.2rem 0.3rem 0.2rem;
-      border-radius: 0.1rem;
-    }
-
-    .otp-text {
-      font-size: 1.2rem;
-      color: white;
-
-    }
-
-    .o1 {
-      color: #08c5ff;
-    }
-
-    .o2 {
-      color: #09f1fd;
-      margin-top: 0.3rem;
-      display: block;
-    }
+  
   </style>
 </head>
 
@@ -151,7 +24,7 @@
     <label class="error" id="error">{{error}}</label>
   </div>
   <div class="inputs">
-    <form class=" {% if request.path != '/Create-Account' %} dis-none {% endif %}form1" action="/Create-Account"
+    <form class=" {% if request.path != '/Intrax/Create-Account' %} dis-none {% endif %}form1" action="Intrax/Create-Account"
       method="post">
       {% csrf_token %}
       <input type="text" class="input" value="{{data.name}}" placeholder="Name" name="Name" />
@@ -166,7 +39,7 @@
         <button type="submit" class="btn signupbtn">Create</button>
       </div>
     </form>
-    <form class="form2 {% if request.path != '/Login' %} dis-none {% endif %}" action="/Login" method="get">
+    <form class="form2 {% if request.path != '/Intrax/Login' %} dis-none {% endif %}" action="/Intrax/Login" method="get">
       <input type="text" class="input" value="{{data1.phone}}" name="Phone" required placeholder="Phone" />
       <input type="Password" value="{{data1.pass}}" name="Password" class="input" required placeholder="Password" />
       <div class="btns">
@@ -176,8 +49,8 @@
         <button type="submit" class="btn signupbtn">Login</button>
       </div>
     </form>
-    <form class="{% if request.path != '/OTP-Verification' %} dis-none {% endif %} form3 {{request.path}}"
-      action="/OTP-Verification" method="get">
+    <form class="{% if request.path != '/Intrax/OTP-Verification' %} dis-none {% endif %} form3 {{request.path}}"
+      action="Intrax/OTP-Verification" method="get">
       <div class="main-box">
         <div class="otp-sent">
           <label for="">OTP Sent Successfully</label>
@@ -206,13 +79,13 @@
     }
     function go_page(index) {
       if (index == 0) {
-        location.href = "/Login"
+        location.href = "/Intrax/Login"
       }
       if (index == 1) {
-        location.href = "/Create-Account"
+        location.href = "/Intrax/Create-Account"
       }
       if (index == 2) {
-        location.href = "/Create-Account"
+        location.href = "/Intrax/Create-Account"
       }
     }
   </script>

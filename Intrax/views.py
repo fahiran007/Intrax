@@ -9,7 +9,7 @@ from .send_otp import Send_email_and_phone_otp
 # Create your views here.
 def home(request):
     if request.user.is_anonymous:
-        return redirect('/IntraX/Login')
+        return redirect('/Intrax/Login')
     else:
         data = Application_Form.objects.all()
     return render(request, 'index.html',{'data':data})
@@ -25,13 +25,12 @@ def Login(request):
             user = authenticate(username=Phone,password=Password)
             if user is not None:
                 error = "Your Account Was Created successfully"
-                redirect(to)
             elif user is None :
                 error = "Phone/Password Phone or Password is incorrect"
-                return render(request, 'login.html',{'error':error,'data1':data})
-    except:
+            return render(request, 'Intrax/login.html',{'error':error,'data1':data})
+    except Exception as f:
         pass
-    return render(request, 'login.html')
+    return render(request, 'Intrax/login.html')
 def Create_Account(request):
     if request.method == "POST":
         Name = request.POST.get('Name')
@@ -65,9 +64,8 @@ def Create_Account(request):
         userInfo = FormValidation(Name=Name,Email=Email,Password=Password,Re_pass=Re_pass,Phone=Phone,idx=idx,phone_otp=phone_otp,email_otp=email_otp)
         userInfo.save()
         return redirect(f'/OTP-Verification')
-    return render(request, 'login.html')
+    return render(request, 'Intrax/login.html')
 def Verification(request):
-    print(request)
     Phone_number = request.GET.get('phone')
     try :
         Email_OTP = request.GET.get('em-otp')

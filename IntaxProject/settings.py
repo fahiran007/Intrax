@@ -33,11 +33,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
-    'tts2.apps.Tts2Config',
-    'multisell.apps.MultisellConfig',
-    'TTS.apps.TtsConfig',
-    'interstorex.apps.InterstorexConfig',
-    'TimeRules.apps.TimerulesConfig',
+    'IPassApp.apps.IpassappConfig',
     'Intrax.apps.IntraxConfig',
     'django.contrib.admin',
     'django.contrib.auth',

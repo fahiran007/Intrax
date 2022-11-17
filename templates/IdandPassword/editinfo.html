@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="/static/IdandPassword/css/utils.css">
+</head>
+
+<body>
+   <header class="hr-7 bg-white">
+      <a href="/IPassApp" class="d-flex-center-y px-2 h-100 w-100">
+        <img src="/static/IdandPassword/media/003-back-2.png" alt="" class="hr-3 me-2 back-img">
+        <p class="my-0 fw-bold">Online Platform Information</p>
+      </a>
+    </header>
+    <div class="w-100 addingPage my-1">
+        <form action="/IPassApp/Edit-Info?token={{data.idx}}" method="post" class="w-95 mx-auto my-1">
+            {% csrf_token %}
+            <div class="form-floating mb-3">
+                <input name="platform" type="text" class="form-control shadow-none" id="floatingInput"
+                    placeholder="name@example.com" value="{{data.platform}}"/>
+                <label for="floatingInput">Platform</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input name="username" type="text" class="form-control shadow-none" id="floatingInput"
+                    placeholder="name@example.com" value="{{data.username}}"/>
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input name="password" type="text" class="form-control shadow-none" id="floatingInput"
+                    placeholder="name@example.com" value="{{data.password}}"/>
+                <label for="floatingInput">Password</label>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary w-100 fw-bold fs-5">
+                    Add Item
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+
+</html>
